@@ -2,44 +2,38 @@
 <html lang="zh-CN">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Document</title>
+		<title>DaddyX - Website</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" />
+		<link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 		<style type="text/css">
-			* {
-				padding: 0;
-				margin: 0;
-			}
-			html {
-				height: 100%;
-			}
-			body {
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				align-items: center;
-				height: 100%;
-			}
-			
-			.demo {
-				position: relative;
-				animation: rotating 10s linear infinite;
-				-webkit-animation: rotating 10s linear infinite;
-			}
 
-			@keyframes rotating {
-				from {
-					transform: rotate(0)
-				}
-				to {
-					transform: rotate(360deg)
-				}
-			}
 		</style>
 	</head>
 	<body>
 
-		<div class="demo">爱的魔力转圈圈，来自柳婷的旋转特效</div>
+<div class="container">
+	
 
+		<div class="alert alert-primary" role="alert" id="demo">
+		  A simple primary alert—check it out!
+		</div>
+		<button type="button" class="btn btn-primary btn-block btn-test">测试</button>
+
+</div>
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(".btn-test").on("click", function(){
+				$.post("http://test.cc-sevice.com/index/index/test", {
+					
+				}, function(res) {
+					let data = JSON.parse(res);
+					console.log(data.status);
+					console.log(data.msg);
+					$("#demo").html(data.msg);
+				});
+			});
+		</script>
 	</body>
 </html>
