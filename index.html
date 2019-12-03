@@ -1,39 +1,83 @@
 <!doctype html>
-<html lang="zh-CN">
+<html>
 	<head>
 		<meta charset="UTF-8" />
-		<title>DaddyX - Website</title>
+		<title>Moon</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<meta http-equiv ="Content-Security-Policy" content="upgrade-insecure-requests">
-		<link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
-		<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/animate.min.css" rel="stylesheet">
+		<link href="plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/Swiper/4.5.1/css/swiper.min.css" rel="stylesheet">
 		<style type="text/css">
+			.demo {
+				animation: rotating 2s linear infinite;
+				-webkit-animation: rotating 2s linear infinite;
+			}
 
+			@keyframes rotating {
+				from {
+					transform: rotate(0)
+				}
+
+				to {
+					transform: rotate(360deg)
+				}
+			}
 		</style>
 	</head>
 	<body>
+		<div class="container">
 
-<div class="container">
-	
+			<img src="image/liaoshenm.jpg" class="mx-auto d-block" style="height: 100px;">
 
-		<div class="alert alert-primary" role="alert" id="demo">
-		  A simple primary alert—check it out!
+			<ul class="nav nav-fill">
+				<li class="nav-item">
+					<a class="nav-link active" href="javascript:;">首页</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:;">Link</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:;">Link</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:;">Link</a>
+				</li>
+			</ul>
+
+			<!-- Swiper -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<img src="image/flex-1.jpeg" class="w-100">
+					</div>
+					<div class="swiper-slide">
+						<img src="image/flex-1.jpeg" class="w-100">
+					</div>
+					<div class="swiper-slide">
+						<img src="image/flex-1.jpeg" class="w-100">
+					</div>
+					<div class="swiper-slide">
+						<img src="image/flex-1.jpeg" class="w-100">
+					</div>
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+			</div>
+
+			<div class="text-center">
+				<img src="image/circle-demo.jpg" class="demo" style="height: 300px;width: 300px;">
+			</div>
 		</div>
-		<button type="button" class="btn btn-primary btn-block btn-test">测试</button>
-
-</div>
 		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="https://cdn.bootcss.com/Swiper/4.5.1/js/swiper.min.js"></script>
 		<script type="text/javascript">
-			$(".btn-test").on("click", function(){
-				$.post("http://test.cc-sevice.com/index/index/test", {
-					
-				}, function(res) {
-					let data = JSON.parse(res);
-					console.log(data.status);
-					console.log(data.msg);
-					$("#demo").html(data.msg);
-				});
+			var swiper = new Swiper('.swiper-container', {
+				autoplay: true,
+				pagination: {
+					el: '.swiper-pagination',
+					dynamicBullets: true,
+				},
 			});
 		</script>
 	</body>
